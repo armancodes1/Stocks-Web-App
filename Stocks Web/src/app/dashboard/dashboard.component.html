@@ -1,0 +1,71 @@
+<div class="panel-header panel-header-lg">
+    <canvas baseChart id="bigDashboardChart"
+                [datasets]="lineBigDashboardChartData"
+                [labels]="lineBigDashboardChartLabels"
+                 [colors]="lineBigDashboardChartColors"
+                [options]="lineBigDashboardChartOptions"
+                [chartType]="lineBigDashboardChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+</div>
+
+<div class="main-content">
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card  card-tasks">
+        <div class="card-header ">
+          <h5 class="card-category">Select time range and company</h5>
+          <h4 class="card-title">Company</h4>
+        </div>
+        <div class="card-body ">
+          <div class="table-full-width table-responsive">
+            <div>
+              <label>Enter Symbol</label>
+              <div class= "row form-group">
+                  <input style="width:50%; margin-left:20px" class="form-control" [(ngModel)]="selectedCompany"> 
+              </div>
+            </div>
+            <div class="row">
+              <button type="button" class="btn btn-primary" style="margin: 10px;" (click)="getSelectedCompany()">Present day</button> 
+             <button type="button" class="btn btn-primary" style="margin: 10px;" (click)="onClick('1w', 'Last 1 week')">Last 1 week</button></div>
+            <div class="row"> <button type="button" class="btn btn-primary" style="margin: 10px;" (click)="onClick('1m', 'Last 1 month')">Last 1 month</button>
+             <button type="button" class="btn btn-primary" style="margin: 10px;" (click)="onClick('1y', 'Last 1 year')">Last 1 year</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer ">
+          <hr>
+          Graph shows data point for {{ message }}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <img src={{logoUrl}} ALIGN="right"/>
+          <h5 class="card-category">Company's Stats</h5>
+          
+          <h4 class="card-title">{{ companyData?.companyName }} </h4>
+          
+        </div>
+        <div class="card-body">
+          <div class = "row">
+          <p><b>Open Price</b>   {{ ohlcData?.open }}</p>
+          <p><b>Close Price</b>   {{ ohlcData?.close }}</p>
+          <p><b>Lowest Price</b>  {{ ohlcData?.low }}</p>
+          <p><b>Highest Price</b>   {{ohlcData?.high}}</p>
+          <p><b>Volume</b>    {{ohlcData?.volume}}</p>
+          <p><b>Note:</b> This data is for date:- {{ohlcData?.date}}</p><div></div>
+            <p><b>52w high</b>   {{ companyData?.week52high }}</p>
+            <p><b>52w low</b>   {{ companyData?.week52low }}</p>
+            <p><b>Market Cap</b>  {{ companyData?.marketcap }}</p>
+            <p><b>P/E Ratio</b>   {{companyData?.peRatio}}</p>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

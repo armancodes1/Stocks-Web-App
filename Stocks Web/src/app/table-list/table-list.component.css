@@ -1,0 +1,26 @@
+input.form-control  {
+    width: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-color: black;
+}
+input:focus {
+    border-color:darkorange;
+}
+
+label{
+    margin-left: 20px;
+    font-size: large;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+p {
+    margin-left: 20px;
+}

@@ -1,0 +1,9 @@
+.row p{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+img {
+    max-width: 120px;
+    max-height: 180px;
+}
